@@ -1,0 +1,41 @@
+body{
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #292930;
+    color: #ffffff;
+    font-size: large;}
+
+ 
+h2{
+
+    font-size: 40px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.example
+{
+    font-size: x-small;
+    font-style: italic;
+}
+form
+{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    max-width: 600px;
+}
+button
+{
+    text-align: center;
+    font-weight: bold;
+}
+
+#displayResult{
+    color: aquamarine;
+    font-weight: bold;
+}
