@@ -92,11 +92,14 @@ const cpiData = [
    var form = document.getElementById('validForm');
    if (form.checkValidity()) {
     let cpiYear = document.getElementById('cpiYear').value;
-    let cpiDollarToCheck = document.getElementById('cpiDollarToCheck').value;
+    let cpiDollarToCheck = parseFloat(document.getElementById('cpiDollarToCheck').value);
     let cpiYearIndex = cpiData.findIndex(item => item[0] == cpiYear);
     let cpiRateIndex = cpiData[cpiYearIndex][1];
     let result = (307*cpiDollarToCheck)/cpiRateIndex;
-   document.getElementById('displayResult').innerText = `$${cpiDollarToCheck} in ${cpiYear} is worth about $${Math.round(result)} in today's dollars (2023)`
+    let formattedDollarToCheck = cpiDollarToCheck.toLocaleString();
+    let roundResult = Math.round(result)
+    let formattedResultToCheck = roundResult.toLocaleString();
+   document.getElementById('displayResult').innerText = `$${formattedDollarToCheck} in ${cpiYear} is worth about $${formattedResultToCheck} in today's dollars (2023)`
 }
    else {
       alert('Please fill in all required fields with valid values.');
