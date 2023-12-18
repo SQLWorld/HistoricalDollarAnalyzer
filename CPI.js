@@ -89,11 +89,16 @@ const cpiData = [
 
 
  fn_calculateCpi = function(){
-   var form = document.getElementById('validForm');
-   if (form.checkValidity()) {
     let cpiYear = document.getElementById('cpiYear').value;
     let cpiDollarToCheck = parseFloat(document.getElementById('cpiDollarToCheck').value);
-    let cpiYearIndex = cpiData.findIndex(item => item[0] == cpiYear);
+    
+   if (cpiYear<1947 || cpiYear>2022) {
+      document.getElementById('displayResult').innerText = `Please choose a year between 1947-2022`}
+   else if (cpiDollarToCheck <=0) {
+      document.getElementById('displayResult').innerText = `Please provide a dollar value greater than 0`
+   }
+   else {
+   let cpiYearIndex = cpiData.findIndex(item => item[0] == cpiYear);
     let cpiRateIndex = cpiData[cpiYearIndex][1];
     let result = (307*cpiDollarToCheck)/cpiRateIndex;
     let formattedDollarToCheck = cpiDollarToCheck.toLocaleString();
@@ -101,9 +106,7 @@ const cpiData = [
     let formattedResultToCheck = roundResult.toLocaleString();
    document.getElementById('displayResult').innerText = `$${formattedDollarToCheck} in ${cpiYear} is worth about $${formattedResultToCheck} in today's dollars (2023)`
 }
-   else {
-      alert('Please fill in all required fields with valid values.');
-   }
+   
 }
 
  //console.log(`The CPI Year is ${cpiYear}`);
