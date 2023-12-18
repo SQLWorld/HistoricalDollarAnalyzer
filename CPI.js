@@ -93,9 +93,16 @@ const cpiData = [
     let cpiDollarToCheck = parseFloat(document.getElementById('cpiDollarToCheck').value);
     
    if (cpiYear<1947 || cpiYear>2022) {
-      document.getElementById('displayResult').innerText = `Please choose a year between 1947-2022`}
+     let displayResultElement = document.getElementById('displayResult');
+     displayResultElement.innerText = `Please choose a year between 1947-2022`;
+     displayResultElement.style.color = 'red';
+   }
    else if (cpiDollarToCheck <=0) {
-      document.getElementById('displayResult').innerText = `Please provide a dollar value greater than 0`
+
+      let displayResultElement = document.getElementById('displayResult');
+      displayResultElement.innerText = `Please provide a dollar value greater than 0`;
+      displayResultElement.style.color = 'red';
+     
    }
    else {
    let cpiYearIndex = cpiData.findIndex(item => item[0] == cpiYear);
@@ -104,7 +111,9 @@ const cpiData = [
     let formattedDollarToCheck = cpiDollarToCheck.toLocaleString();
     let roundResult = Math.round(result)
     let formattedResultToCheck = roundResult.toLocaleString();
-   document.getElementById('displayResult').innerText = `$${formattedDollarToCheck} in ${cpiYear} is worth about $${formattedResultToCheck} in today's dollars (2023)`
+    let displayResultElement = document.getElementById('displayResult');
+    displayResultElement.innerText = `$${formattedDollarToCheck} in ${cpiYear} is worth about $${formattedResultToCheck} in today's dollars (2023)`
+    displayResultElement.style.color = 'aquamarine';
 }
    
 }
