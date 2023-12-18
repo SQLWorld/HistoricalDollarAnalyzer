@@ -112,7 +112,7 @@ const cpiData = [
     let roundResult = Math.round(result)
     let formattedResultToCheck = roundResult.toLocaleString();
     let displayResultElement = document.getElementById('displayResult');
-    displayResultElement.innerText = `$${formattedDollarToCheck} in ${cpiYear} is worth about $${formattedResultToCheck} in today's dollars (2023)`
+    displayResultElement.innerText = `$${formattedDollarToCheck} in ${cpiYear} is worth about $${formattedResultToCheck} in today's dollars (2023) when adjusted for inflation`
     displayResultElement.style.color = 'aquamarine';
 }
    
